@@ -1,0 +1,20 @@
+{"id":"U01","user":"我在體大，想去第二航廈，現在衝月台來得及哪班？","category":"colloquial_schedule","expected_behavior":"辨識 A7 到 A13；查當下班次，區分預定與即時，不保證趕上。"}
+{"id":"U02","user":"幫我看去第一航廈最快的車。","category":"missing_origin","expected_behavior":"站外先問起站；站內可用設備所在站，不捏造班次。"}
+{"id":"U03","user":"A10 上車想搭紫色車到 A3，可以嗎？","category":"express_nonstop","expected_behavior":"指出直達車不停 A10，改查可停靠的普通車。"}
+{"id":"U04","user":"散場後我在 A19，半夜還能回 A1 嗎？","category":"last_train","expected_behavior":"以日期、臺灣時間與 A19 到 A1 查班；末班已過時明說無車。"}
+{"id":"U05","user":"只剩一班去台北的車了嗎？我在 A18。","category":"single_remaining_train","expected_behavior":"查最近及下一班；只有一班時明說後面沒有下一班。"}
+{"id":"U06","user":"A3 去 A11 先坐直達到 A8 轉車會更早到嗎？","category":"transfer_wait","expected_behavior":"比較直達加轉乘與普通車直達的實際抵達時間，計入 A8 候車。"}
+{"id":"U07","user":"我在 A8 去機場，廣播說暫停營運，原來那班還能搭嗎？","category":"suspension","expected_behavior":"查營運異動；停駛時不引用正常班表為可搭班次。"}
+{"id":"U08","user":"你那筆列車資料已經半小時前了，A12 下一班確定嗎？","category":"stale_data","expected_behavior":"認出資料過期，重新查詢或明說無法確認，不重複舊時間。"}
+{"id":"U09","user":"A15 到 A1 幾點發車？查詢系統一直沒回應。","category":"tool_unavailable","expected_behavior":"告知無資料並引導查看站內看板或詢問站務，不猜測時間。"}
+{"id":"U10","user":"官網班表寫 10:05，看板因延誤改成 10:17；我該看哪個？","category":"scheduled_vs_realtime","expected_behavior":"說明預定與即時資料不同，優先查當下異動並以現場資訊確認，不把班表稱作即時。"}
+{"id":"U11","user":"老街溪往機場那班車，能不能直接載我到台北？","category":"terminal_mismatch","expected_behavior":"核對班次終點與 A1 停靠，不能只依月台方向判斷。"}
+{"id":"U12","user":"朋友說機捷已經能直達台鐵中壢，我要坐到哪站？","category":"unopened_station","expected_behavior":"查最新營運站點；未開通時不能引導旅客搭到 A23。"}
+{"id":"U13","user":"三個大箱子都能放直達車嗎？","category":"luggage","expected_behavior":"說明當前行李規則與行李架，超出規格時請站務確認。"}
+{"id":"U14","user":"A4 去 A12 現在刷悠遊卡多少？","category":"dynamic_fare","expected_behavior":"查當日票價；查不到時不猜金額。"}
+{"id":"U15","user":"我們夫妻可不可以輪流刷同一張卡過機捷閘門？","category":"shared_card","expected_behavior":"說明一人一票與各自使用同一票證進出站。"}
+{"id":"U16","user":"我在站內詢問機問去高鐵桃園的車。","category":"device_origin","expected_behavior":"若設備提供所在站則直接使用；沒有站點資訊才詢問起站。"}
+{"id":"U17","user":"現在 23:58，有沒有過午夜才到 A13 的車？我在 A8。","category":"cross_midnight","expected_behavior":"以完整日期與時區比對發車和抵達，不把隔日時間誤判為已過。"}
+{"id":"U18","user":"我在大園要去第一航廈，往中壢那邊搭對嗎？","category":"direction","expected_behavior":"辨識 A15 到 A12 應往機場、台北方向，並查可停靠班次。"}
+{"id":"U19","user":"我這班機快起飛了，A3 還能幫我先托運嗎？","category":"checkin_eligibility","expected_behavior":"查航空公司、航班及當日截止時間；資訊不足時不保證可辦。"}
+{"id":"U20","user":"從高鐵桃園站去機場，快告訴我哪班！","category":"ambiguous_terminal","expected_behavior":"先確認第一或第二航廈；若可同時停靠，仍須核對目的站與實際班次。"}
