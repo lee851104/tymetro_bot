@@ -25,3 +25,7 @@
 ## 資料處理方式
 
 模擬資料的發車日期為 2099 年，時間只在工具回傳和**引用該回傳**的助手回答中出現，沒有把當日實際班次當作永久答案。`data/processed/` 納入 Git，是為了跨電腦重現同一輪試訓；`outputs/`、模型權重與快取不進 Git。
+
+## 桃園市開放資料補充
+
+使用者提供的[桃園捷運起迄站間票價資料](https://opendata.tycg.gov.tw/datalist/166119b7-e7dc-4f73-86d6-a51b0f8e691a)標題雖含「票價」，但頁面欄位與實際預覽只列 `OriginStationID`、`DestinationStationID`、`TrainType`、`TravelTime`、`TravelDistance` 及更新時間，沒有票價金額或發車時間。因此不把這份資料拿來回答票價或下一班車，也不需下載進本輪 LoRA 資料。若日後需要路線行車時間，可在確認欄位與更新頻率後，用獨立資料取得程式存放快取；執行時仍要檢查來源時間。
