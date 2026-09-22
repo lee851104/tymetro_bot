@@ -1,0 +1,104 @@
+{
+  "checks": 1386,
+  "passed": 1386,
+  "differences": [],
+  "results": [
+    {
+      "reference_service_date": "2026-09-21",
+      "day_type": "workday",
+      "checks": 759,
+      "passed": 759,
+      "differences": [],
+      "covered_stations": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14a",
+        "A15",
+        "A16",
+        "A17",
+        "A18",
+        "A19",
+        "A20",
+        "A21",
+        "A22"
+      ],
+      "scope": "A1 全日；全線首班與 10–15 時基本頻率；已轉錄的適用加班、末班、北上夜間及增停發車格。",
+      "not_verified": [
+        "全圖每一格",
+        "圖片中到站／終點抵達時間與車次串接"
+      ],
+      "unresolved": []
+    },
+    {
+      "reference_service_date": "2026-09-25",
+      "day_type": "holiday",
+      "checks": 627,
+      "passed": 627,
+      "differences": [],
+      "covered_stations": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14a",
+        "A15",
+        "A16",
+        "A17",
+        "A18",
+        "A19",
+        "A20",
+        "A21",
+        "A22"
+      ],
+      "scope": "A1 全日；全線首班與 10–15 時基本頻率；已轉錄的適用加班、末班、北上夜間及增停發車格。",
+      "not_verified": [
+        "全圖每一格",
+        "圖片中到站／終點抵達時間與車次串接"
+      ],
+      "unresolved": []
+    }
+  ],
+  "resolved": [
+    {
+      "id": "IMG-01",
+      "decision": "使用者指定不處理特殊活動，平假日依行政院公布日曆。"
+    },
+    {
+      "id": "IMG-02",
+      "decision": "使用者指定以主表為準。平日 A21 07:00 採 des05，A8 07:43、A3 08:02；保留右下舊列作原圖轉錄證據，但不匯入發車。"
+    },
+    {
+      "id": "IMG-03",
+      "decision": "使用者確認修正為 13:54；一般假日 2026/10/17 官方 A18 發車表亦為 13:54。",
+      "original_transcription": "1351",
+      "corrected": "1354"
+    },
+    {
+      "id": "IMG-04",
+      "decision": "使用者確認：22:00 後，A10 到 A17 的發車時間都慢 2 分鐘。"
+    }
+  ],
+  "unresolved": [],
+  "source_json_sha256": "c8927d8d670f1e326992181ff08da33c02c60827469199b9c17508617e4a7c77",
+  "cache_sha256": "663065f3c5e5f39310a9bad619d8a85bea6e46939f9bea8a6292b1f5d750a7aa"
+}

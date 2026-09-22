@@ -1,0 +1,79 @@
+{
+  "reviewed_at": "2026-09-22T13:34:48+08:00",
+  "repository": "https://github.com/AIOmarRehan/Unsloth_Llama_3.2_11B_Vision_Instruct_Astronomy",
+  "commit": "6b8d73fbb51c3776b3a2d34064f68481dbf37f0d",
+  "local_checkout": "outputs\\references\\astronomy",
+  "reference_code_executed": false,
+  "files": {
+    "README.md": {
+      "sha256": "c057df56836897f7a520f85195556e1fa9cd7f8dbc0652d999a810a85f382d0e",
+      "bytes": 9659
+    },
+    "app.py": {
+      "sha256": "23e8652360fac9fcc3518025e4aa37498d8627699b7787d27e26b504c27f5752",
+      "bytes": 7604
+    },
+    "requirements.txt": {
+      "sha256": "1de531c023fa2883605f53b69577309383f1931c7c09b56669e8125df8ad0638",
+      "bytes": 211
+    },
+    "LICENSE": {
+      "sha256": "0553a00efeef97ebefc48e91616fb4ea466ab550eab6d513361084c817259d63",
+      "bytes": 1088
+    },
+    "Notebook/unsloth_Llama_3_2_11B_Vision_Instruct_Astronomy.ipynb": {
+      "sha256": "39c61ba2a85fc2ff6659a953352d78c3cabb3575e2db5e3de25a3ec10d5386f1",
+      "bytes": 2890320
+    },
+    "Notebook/unsloth_Llama_3_2_11B_Vision_Instruct_Astronomy_Deploying.ipynb": {
+      "sha256": "bf7eccc5c2550cdd7cdcc452776b0cd54148b84cd95d3643552affb2f221b1b2",
+      "bytes": 310123
+    },
+    "Unsloth Notebook/Llama3_2_(11B)_Vision.ipynb": {
+      "sha256": "c6a9afd1b3c06428f6ce4d88145d6b8b7cf3fb050928ee6586344b6ffe0a0a5e",
+      "bytes": 517420
+    }
+  },
+  "findings": [
+    {
+      "id": "split_overwritten",
+      "cells_zero_based": [
+        44,
+        45,
+        49,
+        52,
+        55
+      ],
+      "evidence": "200/25/25 split is overwritten by rebuilding hf_dataset from full df; saved trainer output says 250 examples; evaluation samples full df after training."
+    },
+    {
+      "id": "prompt_in_predictions",
+      "cells_zero_based": [
+        56,
+        58
+      ],
+      "evidence": "Full generated sequence is decoded; saved predictions contain user instruction and assistant marker."
+    },
+    {
+      "id": "destructive_caption_cleaning",
+      "cells_zero_based": [
+        24,
+        25,
+        27
+      ],
+      "evidence": "Lowercase and regex retain only a-z whitespace, then overwrite text."
+    },
+    {
+      "id": "no_validation_in_trainer",
+      "cells_zero_based": [
+        49
+      ],
+      "evidence": "Trainer has no eval_dataset."
+    },
+    {
+      "id": "adapter_load_needs_verification",
+      "source_file": "app.py",
+      "evidence": "get_peft_model is called with lora_adapter keyword; no loaded-weight statistics or adapter file hash are recorded."
+    }
+  ]
+}

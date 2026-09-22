@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f1eb"><meta name="color-scheme" content="light dark"><title>下一站｜機捷班次查詢</title>
+  <script src="/app.js"></script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="4"/><path d="M5 12h14M12 3v9M8 19l-2 3m10-3 2 3M8 16h1m6 0h1"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M3 8h17m-4-4 4 4-4 4M21 16H4m4-4-4 4 4 4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.7 8.7 0 0 1 8.5 4 8.8 8.8 0 1 0 20 15.5Z"/></symbol>
+</defs></svg>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="/" aria-label="下一站首頁"><span class="brand-icon"><svg class="icon"><use href="#i-train"/></svg></span><span><strong>下一站<span class="brand-divider">/</span>機捷助手</strong><small>NEXT STOP · AIRPORT MRT</small></span></a>
+  <nav aria-label="網站工具"><a class="official-link" href="https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php" target="_blank" rel="noopener noreferrer">官方時刻表 ↗</a><div class="theme-switch" role="group" aria-label="外觀主題"><button type="button" data-theme-choice="light" aria-pressed="false" aria-label="淺色模式"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span>淺色</span></button><button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="深色模式"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>深色</span></button></div></nav>
+</div></header>
+<main class="shell">
+  <div class="page-heading"><h1>查下一班機捷</h1><span class="model-status" id="model-status" role="status">正在連線</span></div>
+  <div class="workspace">
+    <section class="planner" aria-label="查詢條件"><details id="journey-panel" open><summary class="journey-summary"><span>查詢條件</span><span class="journey-summary-values"><strong id="journey-summary-route">A1 → A13</strong><small id="journey-summary-time"></small></span><span class="journey-toggle" aria-hidden="true"></span></summary><form id="journey-form">
+      <div class="route-fields">
+        <button type="button" class="route-field origin" id="origin-picker" aria-pressed="true" aria-controls="station-map" disabled><span class="field-label"><i></i>出發站</span><span class="selected-station"><b id="origin-code">A1</b><strong id="origin-name">台北車站</strong></span></button>
+        <button type="button" class="swap-button" id="swap" aria-label="交換起訖站" disabled><svg class="icon"><use href="#i-swap"/></svg></button>
+        <button type="button" class="route-field destination" id="destination-picker" aria-pressed="false" aria-controls="station-map" disabled><span class="field-label"><i></i>目的站</span><span class="selected-station"><b id="destination-code">A13</b><strong id="destination-name">第二航廈</strong></span></button>
+      </div>
+      <div class="route-map-panel">
+        <div class="map-heading"><p id="map-instruction" aria-live="polite">點選車站，設定出發站</p><span class="map-legend"><i></i>起點 <i></i>終點</span></div>
+        <div id="station-map" class="station-map" role="group" aria-label="機場捷運路線選站"></div>
+        <p class="map-caption">全線 22 站・實際停靠依班次為準</p>
+      </div>
+      <fieldset class="train-filter"><legend>想搭哪種車？</legend><div class="train-options">
+        <label><input type="radio" name="train-type" value="" checked><span>全部車種</span></label>
+        <label class="commuter-option"><input type="radio" name="train-type" value="普通車"><span><i></i>普通車</span></label>
+        <label class="express-option"><input type="radio" name="train-type" value="直達車"><span><i></i>直達車</span></label>
+      </div></fieldset>
+      <div class="time-heading"><label for="date">出發日期與時間</label><button type="button" id="now">使用現在時間</button></div>
+      <div class="query-controls"><div class="datetime-fields"><input type="date" id="date" required aria-label="出發日期"><input type="time" id="time" required aria-label="出發時間"></div><button type="submit" class="primary-button" id="search" disabled>查詢班次 <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <div class="form-foot"><span>臺灣時間 UTC+8</span><span id="coverage">班表資料載入中</span></div>
+    </form></details></section>
+    <section class="results-panel" aria-labelledby="results-heading">
+      <div class="panel-heading"><h2 id="results-heading">班次</h2><span class="scheduled-tag">預定時刻</span></div>
+      <div id="result-area" aria-live="polite" aria-busy="false"></div>
+      <div class="chat-section" id="chat-section"><div class="chat-heading"><h3>直接問我</h3><button type="button" id="reset">新對話</button></div>
+        <details id="conversation-history" class="conversation-history" hidden><summary>對話紀錄 <span id="history-count"></span></summary><div id="chat-log" class="chat-log" role="log" aria-label="你與機捷助手的對話" aria-relevant="additions text" tabindex="0"></div></details>
+        <div id="chat-choices"></div>
+        <form id="chat-form" class="composer"><label class="sr-only" for="message">輸入問題</label><textarea id="message" rows="1" maxlength="1000" placeholder="A12 到 A18，末班車幾點？" required></textarea><button type="submit" id="send" aria-label="傳送訊息" disabled><svg class="icon"><use href="#i-arrow"/></svg></button></form>
+        <p class="chat-caption">未指定日期時間時，依查詢條件設定。</p>
+      </div>
+    </section>
+  </div>
+  <footer><p>非官方服務・預定班表，以現場為準</p><div><a href="https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php" target="_blank" rel="noopener noreferrer">官方班表 ↗</a><button type="button" id="about-open">查詢說明</button></div></footer>
+</main>
+<dialog id="about-dialog"><div class="dialog-heading"><h2>關於這個助手</h2><button class="dialog-close" aria-label="關閉"><svg class="icon"><use href="#i-close"/></svg></button></div><p>目前使用本機第二輪 Qwen3 4B LoRA，先提供中文查詢。</p><p>選站表單會傳送確定的站碼、車種與時間給模型，班次主回答再以同一組條件查詢已整理的班表。模型原始輸出保留在查詢紀錄，避免把模型猜測當成乘車資訊。</p><p>提供不需換車的最近兩班預定發車時間，也可在 Qwen 聊天中直接問首班或末班。接近發車會提醒勿趕車，已過時間也會清楚標示；沒有抵達時間、最快轉乘、票價及即時營運資料。</p><p>首末班依整個營運日查詢，包含隔日凌晨列車。未指定日期時，凌晨 03:00 前歸前一營運日；明確指定日期時，以該日期的營運日查詢。</p><p>路線圖連線表示車站順序，不代表每種車、每一班都停靠沿途所有站。</p></dialog>
+</body></html>

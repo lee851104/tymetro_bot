@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-22T13:34:48+08:00",
+  "data_directory": "C:\\Users\\User\\Desktop\\tymetro_bot\\data\\training",
+  "dataset_sha256": "159befc818a0aaa5e0ba267aaa5b19256f08e93c28a871334c24ed4b357ef0e0",
+  "file_sha256": {
+    "train.jsonl": "74fbb60ad41b4cb3e17245321f8d64a6e67ab07e0083e294fac6049a94c8a9df",
+    "val.jsonl": "00f15013b6143ea31aff29e89b8d7d57d7d9183360d655f1346bf9cf66667675",
+    "manifest.json": "290c5517d0d069af71ec0593f62bed5eb09232b668f5ddc66b98fb4916e8448f"
+  },
+  "partitions": {
+    "train": {
+      "records": 70,
+      "scenario_groups": 44,
+      "with_tool_calls": 22,
+      "without_tool_calls": 48,
+      "tool_conversation_percent": 31.43,
+      "tool_result_status_counts": {
+        "date_not_cached": 2,
+        "no_direct_departures_remaining": 1,
+        "ok": 14,
+        "service_rules_unavailable": 1,
+        "station_needs_clarification": 3,
+        "unavailable": 1
+      },
+      "scenario_group_counts": {
+        "accessibility": 3,
+        "airport_departures": 4,
+        "airport_hotel_terminal": 1,
+        "airport_laojie": 1,
+        "alias_hsr_terminal": 1,
+        "ambiguous_qingpu": 1,
+        "ambiguous_xinzhuang": 1,
+        "boarding_advice": 2,
+        "cache_unavailable": 1,
+        "chang_gung_shanbi": 1,
+        "electronic_payment": 4,
+        "express_to_local": 3,
+        "fare_and_passes": 4,
+        "huanbei_taipei": 1,
+        "incident_response": 4,
+        "laojie_huanbei": 1,
+        "missing_time": 1,
+        "rail_transfer": 5,
+        "rules_unavailable": 1,
+        "same_station": 1,
+        "single_007": 1,
+        "single_014": 1,
+        "single_015": 1,
+        "single_018": 1,
+        "single_019": 1,
+        "single_021": 1,
+        "single_022": 1,
+        "single_028": 1,
+        "single_032": 1,
+        "single_033": 1,
+        "single_035": 1,
+        "single_039": 1,
+        "single_040": 1,
+        "single_049": 1,
+        "single_054": 1,
+        "station_code_name_conflict": 1,
+        "taipei_airport": 3,
+        "taipei_chang_gung": 2,
+        "taipei_laojie": 1,
+        "terminal_taipei": 1,
+        "ticket_refund": 2,
+        "trip_to_a18": 1,
+        "uncached_future": 2,
+        "unknown_station": 1
+      },
+      "exact_duplicate_conversations": 0,
+      "empty_text_messages": 0,
+      "assistant_text_characters": {
+        "count": 72,
+        "minimum": 17,
+        "median": 91.5,
+        "maximum": 200
+      }
+    },
+    "validation": {
+      "records": 17,
+      "scenario_groups": 11,
+      "with_tool_calls": 9,
+      "without_tool_calls": 8,
+      "tool_conversation_percent": 52.94,
+      "tool_result_status_counts": {
+        "no_direct_departures_remaining": 2,
+        "ok": 5,
+        "only_imminent_departures_remaining": 1,
+        "station_needs_clarification": 1
+      },
+      "scenario_group_counts": {
+        "ambiguous_ballpark": 1,
+        "ambiguous_destination": 1,
+        "boarding_last_train": 1,
+        "city_checkin": 2,
+        "late_to_taipei": 3,
+        "linghang_late": 1,
+        "shanbi_terminal": 1,
+        "small_station_to_taipei": 2,
+        "south_express_choice": 2,
+        "sports_airport": 2,
+        "unopened_station": 1
+      },
+      "exact_duplicate_conversations": 0,
+      "empty_text_messages": 0,
+      "assistant_text_characters": {
+        "count": 17,
+        "minimum": 30,
+        "median": 103,
+        "maximum": 164
+      }
+    }
+  },
+  "cross_partition_overlap": {
+    "ids": [],
+    "scenario_groups": [],
+    "exact_conversations": 0
+  },
+  "final_holdout_read": false,
+  "limitations": [
+    "Exact comparisons do not prove absence of semantic near-duplicates.",
+    "Dataset mix is descriptive; its effect on model quality needs a controlled experiment.",
+    "Factual correctness and current applicability of service rules need source review."
+  ],
+  "cleaning_policy": "No mutation; preserve Traditional Chinese, numbers, station codes, times and punctuation."
+}

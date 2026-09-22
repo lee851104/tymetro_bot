@@ -1,5 +1,7 @@
 # 機場捷運問答機器人：第一輪 LoRA 訓練計畫
 
+> 2026-09-21 實作更新：目前以 `data/training/` 的 75 筆對話（61／14）及官方離線班表工具試訓；本機已確認 RTX 4060 8 GB，Windows 原生 CUDA 可運作。以下保留最初計畫，原 50 題／模擬班表／WSL 建議請以 [README](README.md) 與 [最新實測報告](reports/training_readiness.md) 為準。
+
 更新日期：2026-09-20
 
 ## 目標與範圍

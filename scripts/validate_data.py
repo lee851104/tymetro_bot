@@ -119,6 +119,10 @@ def validate_outputs(root=ROOT):
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         return [str(exc)]
     errors = validate_records(all_records)
+    canonical = {record["id"]: record for record in all_records}
+    for record in train + val:
+        if record != canonical.get(record.get("id")):
+            errors.append(f"{record.get('id')}: split content differs from all.jsonl")
     all_ids = {record["id"] for record in all_records}
     train_ids = {record["id"] for record in train}
     val_ids = {record["id"] for record in val}

@@ -1,0 +1,226 @@
+{
+  "dataset_sha256": "159befc818a0aaa5e0ba267aaa5b19256f08e93c28a871334c24ed4b357ef0e0",
+  "training_config_sha256": "c877ef7e7596e5533aea7cb2fb317b35b2b05c5ea1e29114616c422db6bad0da",
+  "reference_notebook_sha256": "921904e487ffa32d664886dd6365b94081e4fad924c6457d35af77d145b88b20",
+  "training": {
+    "train_count": 70,
+    "validation_count": 17,
+    "trainable_parameters": 16515072,
+    "total_parameters": 4038983168,
+    "global_steps": 18,
+    "optimizer": "OptimizerNames.ADAMW_8BIT",
+    "lr_scheduler": "SchedulerType.LINEAR",
+    "baseline_gpu_allocated_gb": 2.586,
+    "baseline_gpu_reserved_gb": 2.609,
+    "peak_gpu_allocated_gb": 3.562,
+    "peak_gpu_reserved_gb": 5.068,
+    "initial_eval_metrics": {
+      "eval_loss": 2.788339614868164,
+      "eval_model_preparation_time": 0.0205,
+      "eval_runtime": 5.4647,
+      "eval_samples_per_second": 3.111,
+      "eval_steps_per_second": 3.111,
+      "epoch": 0
+    },
+    "metrics": {
+      "train_runtime": 62.1351,
+      "train_samples_per_second": 1.127,
+      "train_steps_per_second": 0.29,
+      "total_flos": 944334987509760.0,
+      "train_loss": 2.2225243184301586,
+      "epoch": 1.0
+    },
+    "adapter_sha256": "30e0383836b9c0e7da4ccfc99c852632b4ab70791bb51a5b942c87e0de594979",
+    "adapter_file_bytes": 33096960
+  },
+  "final_eval": {
+    "eval_loss": 1.6855674982070923,
+    "eval_model_preparation_time": 0.0205,
+    "eval_runtime": 5.0542,
+    "eval_samples_per_second": 3.364,
+    "eval_steps_per_second": 3.364,
+    "epoch": 1.0,
+    "step": 18
+  },
+  "comparison": {
+    "base": {
+      "count": 8,
+      "exact_matches": 1,
+      "equivalent_matches": 2,
+      "required_tool_calls": 7,
+      "correct_required_tool_calls": 1,
+      "manual_answer_passes": 0,
+      "model_evidence": {
+        "requested_adapter": null,
+        "base_model": "unsloth/Qwen3-4B-Instruct-2507-bnb-4bit",
+        "base_revision": "f12db89cd5156e090618dded9b4367f23f8f3b33",
+        "template_sha256": "0ab115e84509e86db2bb05a63edf63778ae7fe624972cdfa982b1e59053d6710",
+        "shared_inference_sha256": "755631e6fcf1f906d85c08b1e104cf37934dd2bc88bf6ca9537b585ebf6d50b5",
+        "context_length": 2048,
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "use_cache": true
+        }
+      },
+      "case_review": {
+        "002": {
+          "pass": false,
+          "reason": "Did not query; asked to reconfirm an already identified origin and destination."
+        },
+        "003": {
+          "pass": false,
+          "reason": "Did not query; repeatedly asked known stations and invented a generic airport station mapping."
+        },
+        "004": {
+          "pass": false,
+          "reason": "Incorrectly claimed the Airport MRT has no HSR Taoyuan station and listed unrelated stations."
+        },
+        "V001": {
+          "pass": false,
+          "reason": "Tool call was equivalent and times correct, but final answer mislabeled A22 as Terminal 2 (A13)."
+        },
+        "V004": {
+          "pass": false,
+          "reason": "Asked the needed destination question but also re-asked supplied time and offered inappropriate station examples."
+        },
+        "A004": {
+          "pass": false,
+          "reason": "Re-asked confirmed aliases instead of using the station resolver."
+        },
+        "A008": {
+          "pass": false,
+          "reason": "Invented a Baseball Stadium station and suggested 北車 could be Beitou."
+        },
+        "B002": {
+          "pass": false,
+          "reason": "Did not query the last-train condition; re-asked known time and terminal."
+        }
+      }
+    },
+    "round1": {
+      "count": 8,
+      "exact_matches": 2,
+      "equivalent_matches": 3,
+      "required_tool_calls": 7,
+      "correct_required_tool_calls": 2,
+      "manual_answer_passes": 1,
+      "model_evidence": {
+        "requested_adapter": "outputs\\airport_mrt_adapter_round1_2026-09-21\\adapter",
+        "base_model": "unsloth/Qwen3-4B-Instruct-2507-bnb-4bit",
+        "base_revision": "f12db89cd5156e090618dded9b4367f23f8f3b33",
+        "template_sha256": "0ab115e84509e86db2bb05a63edf63778ae7fe624972cdfa982b1e59053d6710",
+        "shared_inference_sha256": "755631e6fcf1f906d85c08b1e104cf37934dd2bc88bf6ca9537b585ebf6d50b5",
+        "context_length": 2048,
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "use_cache": true
+        },
+        "adapter_sha256": "1f712f7d8d8c2f850e7ef196185ea1e330492aef4d3d5882ea8892307eb846aa",
+        "lora_B_tensor_count": 252,
+        "lora_B_absolute_sum": 3514.6005663871765
+      },
+      "case_review": {
+        "002": {
+          "pass": false,
+          "reason": "Incorrectly said an express train serves A9 and re-asked the supplied time."
+        },
+        "003": {
+          "pass": false,
+          "reason": "Did not query; generated a repeated and invalid transfer explanation."
+        },
+        "004": {
+          "pass": false,
+          "reason": "Asked to identify the already supplied HSR Taoyuan station."
+        },
+        "V001": {
+          "pass": true,
+          "reason": "Used equivalent aliases, reported both correct local departures and kept arrival time unknown."
+        },
+        "V004": {
+          "pass": false,
+          "reason": "Asked to identify known origin A6 instead of clarifying the ambiguous destination."
+        },
+        "A004": {
+          "pass": false,
+          "reason": "Tool call was correct but final answer told a Terminal 1 passenger to get off at A22."
+        },
+        "A008": {
+          "pass": false,
+          "reason": "Confused 北車 with Beitou or Beimen and invented a station name."
+        },
+        "B002": {
+          "pass": false,
+          "reason": "Did not query; re-asked known origin, terminal and time."
+        }
+      }
+    },
+    "round2": {
+      "count": 8,
+      "exact_matches": 2,
+      "equivalent_matches": 5,
+      "required_tool_calls": 7,
+      "correct_required_tool_calls": 4,
+      "manual_answer_passes": 2,
+      "model_evidence": {
+        "requested_adapter": "outputs\\airport_mrt_adapter\\adapter",
+        "base_model": "unsloth/Qwen3-4B-Instruct-2507-bnb-4bit",
+        "base_revision": "f12db89cd5156e090618dded9b4367f23f8f3b33",
+        "template_sha256": "0ab115e84509e86db2bb05a63edf63778ae7fe624972cdfa982b1e59053d6710",
+        "shared_inference_sha256": "755631e6fcf1f906d85c08b1e104cf37934dd2bc88bf6ca9537b585ebf6d50b5",
+        "context_length": 2048,
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "use_cache": true
+        },
+        "adapter_sha256": "30e0383836b9c0e7da4ccfc99c852632b4ab70791bb51a5b942c87e0de594979",
+        "lora_B_tensor_count": 252,
+        "lora_B_absolute_sum": 3807.2674198150635
+      },
+      "case_review": {
+        "002": {
+          "pass": true,
+          "reason": "Queried with equivalent station names and correctly said A9 to A1 uses local trains, not express."
+        },
+        "003": {
+          "pass": false,
+          "reason": "Did not query; repeated an incorrect claim that express trains serve A22 in the other direction."
+        },
+        "004": {
+          "pass": false,
+          "reason": "Correct tool query, but overgeneralized the direct-train result and gave an unhelpful try-another-day response."
+        },
+        "V001": {
+          "pass": true,
+          "reason": "Correct equivalent query and both departure times; no invented A22 terminal mapping. Wording still echoes instructions and should explicitly label departure times."
+        },
+        "V004": {
+          "pass": false,
+          "reason": "Asked for already supplied time and failed to clarify the unknown destination."
+        },
+        "A004": {
+          "pass": false,
+          "reason": "Correct tool call, but incorrectly told a Terminal 1 passenger to transfer at A22."
+        },
+        "A008": {
+          "pass": false,
+          "reason": "Asked about an invented Baseball Stadium station rather than distinguishing Taoyuan and Xinzhuang venues."
+        },
+        "B002": {
+          "pass": false,
+          "reason": "Did not query imminent last train; asked to identify known A1, terminal and time."
+        }
+      }
+    }
+  },
+  "final_holdout_used": false,
+  "answer_review": "Agent manual review, not user acceptance or blinded scoring.",
+  "source_directory": "outputs\\round2_2026-09-22",
+  "limitations": [
+    "8 selected validation probes, not final test accuracy.",
+    "One epoch does not establish generalization or absence of overfitting.",
+    "Shared evaluation is held fixed; training data and runner differ between rounds, so this is not a single-variable attribution."
+  ]
+}

@@ -1,10 +1,13 @@
 .venv/
+.venv-hf/
+.hf-deploy/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
 outputs/
 models/
+unsloth_compiled_cache/
 *.safetensors
 *.bin
 *.pt
