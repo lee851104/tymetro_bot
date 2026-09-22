@@ -2,6 +2,8 @@
 
 **結合自行微調的 Qwen 模型與機捷班表，讓使用者透過中文提問或點選車站查詢班次。**
 
+**[立即試用｜機場捷運AI智慧助手](https://huggingface.co/spaces/lee851104/tymetro-bot)**
+
 ![機捷助手深色操作介面：左側為完整路線選站圖，右側顯示 A12 第一航廈至 A18 高鐵桃園的 23:58 普通車末班車，以及中文提問紀錄](docs/assets/operation-screenshot.png)
 
 ## 1. 專案目標與功能
