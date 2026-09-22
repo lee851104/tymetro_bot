@@ -160,8 +160,39 @@ py -3.11 -m venv .venv
 
 ## 7. 技術文件與驗證紀錄
 
+### 專案目錄
+
+```text
+tymetro_bot/
+├── README.md                 # 專案介紹、操作畫面與快速開始
+├── MODEL_CARD.md             # 模型用途、評估與限制
+├── config/                   # 模型模板與環境版本
+├── data/
+│   ├── raw/qa/               # 五份 QA Markdown 原稿
+│   ├── processed/            # 初版模擬資料，供歷史追查
+│   ├── training/             # 現行訓練與驗證資料、來源雜湊
+│   ├── eval/                 # 獨立測試題
+│   ├── review/               # 人工審查與修訂紀錄
+│   ├── timetable/            # 一般班表、停靠規則與日曆
+│   └── knowledge/            # 官方資訊來源快照
+├── src/                      # 查班規則、模型推論與服務模組
+├── scripts/                  # 資料準備、訓練、評估與啟動入口
+├── tests/                    # 自動化測試
+├── web/                      # 網頁介面
+├── deploy/                   # 部署設定與入口
+├── docs/                     # 開發指南、初版訓練計畫與圖片
+├── reports/                  # 訓練、資料核對與操作驗證報告
+└── .github/workflows/        # CI 檢查
+```
+
+小型資料與來源紀錄納入版本管理，方便重現；`models/`、`outputs/`、虛擬環境及部署暫存由 `.gitignore` 排除。各指令均在專案根目錄執行。
+
+### 文件索引
+
 | 想了解的內容 | 文件 |
 | --- | --- |
+| 模型用途、評估範圍與不適用情境 | [模型說明](MODEL_CARD.md) |
+| QA 原稿與初版設計 | [QA 原稿索引](data/raw/qa/README.md)・[初版訓練計畫](docs/training-plan.md) |
 | 訓練設定、前後比較與錯誤分析 | [第二輪訓練報告](reports/training_round2.md)・[機器可讀指標](reports/training_round2_metrics.json) |
 | 重建資料、訓練、驗證與程式入口 | [開發與重現指南](docs/development.md)・[環境與模型格式](config/README.md) |
 | 時刻表來源、有效日期與平假日判定 | [班表資料說明](data/timetable/README.md)・[圖片核對紀錄](reports/timetable_image_review.md) |

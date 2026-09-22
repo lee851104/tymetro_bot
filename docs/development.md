@@ -27,6 +27,7 @@
 
 ## 資料與能力
 
+- `data/raw/qa/`：五份 QA Markdown 原稿，保留原始題號與修訂來源；[原稿索引](../data/raw/qa/README.md)說明轉換流向。初版訓練設計另存於 [training-plan.md](training-plan.md)。
 - `data/training/`：目前使用的 **87 筆 SFT 對話，70 筆訓練、17 筆驗證**，情境群組不跨集合。包含 50 題原稿改編與 37 題補充案例。
 - `data/processed/`：保留原始 50 題轉換結果，含 2099 年模擬班次，供歷史稽核；目前訓練入口改用 `data/training/`。
 - `data/eval/unseen_cases.jsonl`：20 題獨立最終測試，不用於準備資料、訓練或調參。

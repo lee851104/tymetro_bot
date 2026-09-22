@@ -12,6 +12,7 @@ from src.schedule import get_next_trains
 
 
 ROOT = Path(__file__).resolve().parents[1]
+QA_SOURCE_DIR = Path("data/raw/qa")
 HEADING = re.compile(r"^## (\d{3})｜")
 DIALOGUE = re.compile(r"^- (旅客|機器人)：(.+)$")
 EXCLUDED = {"013", "017", "047", "050"}
@@ -163,7 +164,7 @@ def _replace_dynamic(identifier, messages):
 
 def build_records(root=ROOT):
     records = []
-    for path in sorted(Path(root).glob("airport_mrt_qa_*.md")):
+    for path in sorted((Path(root) / QA_SOURCE_DIR).glob("airport_mrt_qa_*.md")):
         current_id = None
         in_dialogue = False
         messages = []

@@ -95,11 +95,11 @@
     "B002"
   ],
   "source_sha256": {
-    "airport_mrt_qa_001-010.md": "d4009b7b00f5938c0b1cb90ab5ac9c11207f6cba5b64ff62a2ee4908de5e7e4a",
-    "airport_mrt_qa_011-020.md": "826b64e1250d14ad698404ee38a4adae75ab953f822d83aa2627bdb0c20b724d",
-    "airport_mrt_qa_021-030.md": "325c50af89b4acb805e8c7871a85f9d0a9126b7b614b7ab9329e47980dc07984",
-    "airport_mrt_qa_031-040.md": "7df19e0ccb74ddeec7ee311c0fb01fd3501b3f9a8be3c9af7324c0a82941f1ca",
-    "airport_mrt_qa_041-050.md": "1e07135988249765ffd8e6e49baa627e01fa9c30cb226b6ce0abe7c77106d3d6",
+    "data/raw/qa/airport_mrt_qa_001-010.md": "d4009b7b00f5938c0b1cb90ab5ac9c11207f6cba5b64ff62a2ee4908de5e7e4a",
+    "data/raw/qa/airport_mrt_qa_011-020.md": "826b64e1250d14ad698404ee38a4adae75ab953f822d83aa2627bdb0c20b724d",
+    "data/raw/qa/airport_mrt_qa_021-030.md": "325c50af89b4acb805e8c7871a85f9d0a9126b7b614b7ab9329e47980dc07984",
+    "data/raw/qa/airport_mrt_qa_031-040.md": "7df19e0ccb74ddeec7ee311c0fb01fd3501b3f9a8be3c9af7324c0a82941f1ca",
+    "data/raw/qa/airport_mrt_qa_041-050.md": "1e07135988249765ffd8e6e49baa627e01fa9c30cb226b6ce0abe7c77106d3d6",
     "data/training_cases.json": "ab074c9b57347d03e64bb4e010fcf85212595d29dc9119a5f735e6f9f9371ed6",
     "data/timetable/cache.json": "663065f3c5e5f39310a9bad619d8a85bea6e46939f9bea8a6292b1f5d750a7aa",
     "data/timetable/service_rules.json": "ef603309c7225a4598e2c7d84e3c5e83c7a8c007d3245eb539ed4bb9ed49b85f",
@@ -112,8 +112,8 @@
     "src/bot_tools.py": "16406a00ee5e3226348bc8ea08dfc3b5c0e4bbfc79fb5ebbbfd6ed7f6021890f",
     "src/timetable.py": "a515ac379aa19670b9d161a123456139806ade50ca3588f894c1bbf08b6c0c58",
     "src/station_routes.py": "a304c9d85b2117215d89ca6e8f9d2737393c2a2349e87fb9f91f3e0ef5a0a22b",
-    "scripts/prepare_training.py": "f2701ea65518b48679650b4f3dc66e12460e63e9d1b72735e44cd95b497381c4",
-    "scripts/prepare_data.py": "539f4a73c027d4d893752deb08248e56f2bd9c3a58843bab3d5537e4dc27da92"
+    "scripts/prepare_training.py": "173bca54ef6356acb4e204bc1861cef80931437951ea268c74d36a9f10d7e7ad",
+    "scripts/prepare_data.py": "f0820f0b8200195a007430a516a7732419500ee40392c9bbf4fd02dd55ae1dcb"
   },
   "provenance_counts": {
     "reviewed_normal_cache_tool": 29,

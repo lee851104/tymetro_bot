@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from scripts.prepare_data import build_records, split_records, write_jsonl
+from scripts.prepare_data import QA_SOURCE_DIR, build_records, split_records, write_jsonl
 from src.bot_tools import SYSTEM_PROMPT, TOOL_SCHEMA, dispatch_tool, render_answer
 
 
@@ -112,7 +112,7 @@ def build_training(root=ROOT):
         partitions[case["id"]] = case["split"]
     train = [row for row in rows if partitions[row["id"]] == "train"]
     val = [row for row in rows if partitions[row["id"]] == "val"]
-    sources = [*sorted(root.glob("airport_mrt_qa_*.md")),
+    sources = [*sorted((root / QA_SOURCE_DIR).glob("airport_mrt_qa_*.md")),
                root / "data/training_cases.json", root / "data/timetable/cache.json",
                root / "data/timetable/service_rules.json", root / "data/timetable/calendar_2026.json",
                root / "data/timetable/sources/dgpa_2026_rules.json",
